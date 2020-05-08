@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="SnakeGame.css">
+   <title>Snake Game</title>
+</head>
+<body>
+   <script src = "SnakeGame.js"></script>
+   <div id="start-container" class="container">
+      <div id="message-wrapper" class="row">
+         <p id = "message"> Welcome to my Snake Game! Press the button to begin. </p>
+      </div>
+      <div id="start" class="row">
+         <button id = "start-button" class="btn btn-default">Start Game</button>
+      </div>
+      <div id="start">
+         <img id="start-image" src="https://www.coolmathgames.com/sites/default/files/snake.png" class="row"></img>
+      </div>
+   </div>
+   <script src = "SnakeMovement.js"></script>
+   <div id = "board">
+      <section id = "edgeTop"></section>
+      <section id = "edgeBottom"></section>
+      <section id = "edgeLeft"></section>
+      <section id = "edgeRight"></section>
+
+      <section id = "0" class = "bodyPart"></section>
+      <section id = "apple"></section>
+   </div>
+</body>
+</html>

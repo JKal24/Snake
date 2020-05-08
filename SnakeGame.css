@@ -1,0 +1,78 @@
+#board {
+   position: fixed;
+   top: 0; right: 0; left: 0; bottom: 0;
+   background-color: powderblue;
+   display: none;
+   grid-template-columns: repeat(20, 1fr);
+   grid-template-rows: repeat(20, 1fr);
+}
+
+#start {
+   text-align:center;
+}
+
+#start-image {
+   min-height: 80%;
+   min-width: 80%;
+}
+
+#message-wrapper {
+   text-align: center;
+}
+
+#message {
+   display:inline-block;
+   width: 500px;
+   text-align: center;
+}
+
+#start-button {
+   background-color: red;
+   width: 100px;
+}
+
+#head {
+   grid-column: 10 / 11;
+   grid-row: 10 / 11;
+   height: 4vh;
+   width: 4vw;
+   background-color: yellowgreen;
+}
+
+#bodyPart {
+   height: 4vh;
+   width: 3vw;
+   background-color: darkgreen;
+}
+
+#apple {
+   width: 4vw;
+   height: 4vh;
+   grid-column: 16 / 17;
+   grid-row: 17 / 18;
+   background-color: darkred;
+}
+
+#edgeTop {
+   grid-row: 1 / 2;
+   grid-column: 1 / 20;
+   background-color: navy;
+}
+
+#edgeBottom {
+   grid-row: 20;
+   grid-column: 1 / 20;
+   background-color: navy;
+}
+
+#edgeLeft {
+   grid-row: 1 / 20;
+   grid-column: 1 / 2;
+   background-color: navy;
+}
+
+#edgeRight {
+   grid-column: 20;
+   grid-row: 1 / 21;
+   background-color: navy;
+}
