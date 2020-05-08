@@ -31,11 +31,12 @@
    width: 100px;
 }
 
-#0 {
+.head {
    height: 4vh;
    width: 4vw;
    background-color: yellowgreen;
 }
+
 
 .bodyPart {
    height: 4vh;

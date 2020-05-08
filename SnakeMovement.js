@@ -2,29 +2,29 @@ let bodyX;
 let bodyY;
 
 function movement() {
-   changeHead();
-
    changePoints();
+
+   changeHead();
 
    checkPosition();
 }
 
 function changePoints() {
-   lastPart = body[body.length - 1];
+   lastPart = body.slice(body.length - 1)[0];
 
-   for (let parse = 1; parse < body.length - 1; parse++) {
+   for (let parse = body.length - 1; parse > 0; parse--) {
 
       /* get co-ordinates of the piece immediately before this one */
       bodyX = $("#" + body[parse - 1].id).css("grid-column");
       bodyY = $("#" + body[parse - 1].id).css("grid-row");
       
       /* apply these co-ordinates to the current piece */
-      $("#" + body[parse]).css("grid-column", bodyX);
-      $("#" + body[parse]).css("grid-row", bodyY);
+      $("#" + body[parse].id).css("grid-column", bodyX);
+      $("#" + body[parse].id).css("grid-row", bodyY);
 
       /* display the changes in the body array */
-      body[parse].x = bodyX;
-      body[parse].y = bodyY;
+      body[parse].x = bodyX.split(" / ");;
+      body[parse].y = bodyY.split(" / ");;
    }
 }
 
@@ -60,5 +60,16 @@ function changeHead() {
          (parseInt(bodyY[1]) + 1).toString()];
          body[0].y = bodyY;
          $(head).css("grid-row", bodyY[0] + " / " + bodyY[1]);
+   }
+}
+
+function checkPosition() {
+
+   /* check if the head is eating the apple, apple cannot spawn on a body part thus only the head may touch the apple */
+   
+   if ((parseInt(body[0].x[0]) == appleLocation[0][0]) 
+      && (parseInt(body[0].y[0]) == appleLocation[1][0])) {
+      addPart();
+      spawnApple();
    }
 }
