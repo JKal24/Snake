@@ -1,16 +1,18 @@
-let direction;
+let direction = 0;
 let body = [];
 let appleLocation;
-let lastPart;
-let partId = 1;
+let lastPart = {
+   x: ["10", "11"],
+   y: ["10", "11"]
+};
+let partId = 0;
 let board;
 
 $(document).ready(function () {
-   body.push({
-      x: ["10", "11"], 
-      y: ["10", "11"],
-      id: "0"
-   });
+   board = document.getElementById("board");
+
+   addPart();
+
    spawnApple();
 
    $("body").on("keydown", function (e) {
@@ -20,16 +22,19 @@ $(document).ready(function () {
             /* left */
             direction = 0;
             break;
+
          case 38:
 
             /* up */
             direction = 1;
             break;
+
          case 39:
 
          /* right */
             direction = 2;
             break;
+
          case 40:
 
             /* down */
@@ -48,8 +53,8 @@ function spawnApple() {
    /* initialize the new apple co-ordinates and then assign them */
    appleLocation = generateValidLocation();
 
-   $("#apple").css("grid-row", appleLocation[0][0].toString() + "/" + appleLocation[0][1].toString());
-   $("#apple").css("grid-column", appleLocation[1][0].toString() + "/" + appleLocation[1][1].toString());
+   $("#apple").css("grid-row", appleLocation[0][0].toString() + " / " + appleLocation[0][1].toString());
+   $("#apple").css("grid-column", appleLocation[1][0].toString() + " / " + appleLocation[1][1].toString());
 }
 
 function generateValidLocation() {
@@ -71,13 +76,13 @@ function dontSpawnOnBody(n1, n2) {
 
 function checkPosition() {
 
-      /* check if the head is eating the apple, apple cannot spawn on a body part thus only the head may touch the apple */
+   /* check if the head is eating the apple, apple cannot spawn on a body part thus only the head may touch the apple */
    
-      if ((parseInt(body[0].x[0]) == appleLocation[0][0]) 
+   if ((parseInt(body[0].x[0]) == appleLocation[0][0]) 
       && (parseInt(body[0].y[0]) == appleLocation[1][0])) {
-         addPart();
-         spawnApple();
-      }
+      addPart();
+      spawnApple();
+   }
 }
 
 function addPart() {
@@ -96,8 +101,8 @@ function addPart() {
       });
 
    /* assign its new co-ordinates */
-   $(newPart).css("grid-row", lastPart.x[0] + "/" + lastPart.x[1]);
-   $(newPart).css("grid-column", lastPart.y[0] + "/" + lastPart.y[1]);
+   $(newPart).css("grid-column", lastPart.x[0] + " / " + lastPart.x[1]);
+   $(newPart).css("grid-row", lastPart.y[0] + " / " + lastPart.y[1]);
 
    partId++;
 }

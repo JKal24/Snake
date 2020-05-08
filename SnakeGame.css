@@ -31,15 +31,13 @@
    width: 100px;
 }
 
-#head {
-   grid-column: 10 / 11;
-   grid-row: 10 / 11;
+#0 {
    height: 4vh;
    width: 4vw;
    background-color: yellowgreen;
 }
 
-#bodyPart {
+.bodyPart {
    height: 4vh;
    width: 3vw;
    background-color: darkgreen;
