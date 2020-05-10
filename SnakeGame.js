@@ -127,14 +127,21 @@ function gameOver() {
 }
 
 function addBorders() {
-   appendBorder('edgeTop');
+   appendBorder('edgeTopRight');
+   appendBorder('edgeTopLeft');
    appendBorder('edgeBottom');
    appendBorder('edgeRight');
    appendBorder('edgeLeft');
+   appendBorder('scoreBoard');
+   updateScore();
 }
 
 function appendBorder(name) {
    let border = document.createElement('div');
    $(border).attr('id', name);
    board.appendChild(border);
+}
+
+function updateScore() {
+   $("#scoreBoard").text('Score: ' + score);
 }

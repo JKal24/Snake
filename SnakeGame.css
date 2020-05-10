@@ -23,8 +23,8 @@
 #start-image {
    margin-top: 25px;
    text-align: center;
-   min-height: 50%;
-   min-width: 50%;
+   height: 50%;
+   width: 50%;
 }
 
 #score {
@@ -73,9 +73,22 @@
    background-color: darkred;
 }
 
-#edgeTop {
+#scoreBoard {
    grid-row: 1 / 2;
-   grid-column: 1 / 20;
+   grid-column: 9 / 12;
+   text-align: center;
+   color: darkred;
+}
+
+#edgeTopLeft {
+   grid-row: 1 / 2;
+   grid-column: 1 / 9;
+   background-color: navy;
+}
+
+#edgeTopRight {
+   grid-row: 1 / 2;
+   grid-column: 12 / 20;
    background-color: navy;
 }
 

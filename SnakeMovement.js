@@ -11,6 +11,10 @@ function movement() {
 
 function changePoints() {
    lastPart = body.slice(body.length - 1)[0];
+   lastPart = {
+      x: [lastPart.x[0], lastPart.x[1]],
+      y: [lastPart.y[0], lastPart.y[1]]
+   }
 
    for (let parse = body.length - 1; parse > 0; parse--) {
 
@@ -72,9 +76,10 @@ function checkPosition() {
       addPart();
       spawnApple(false);
       score++;
+      updateScore();
    }
 
-   if (outOfBounds(body[0])) {
+   if (outOfBounds(body[0]) || movingIntoItself(body[0])) {
       gameOver();
    }
 }
@@ -85,4 +90,8 @@ function outOfBounds(head) {
       return true;
    }
    return false;
+}
+
+function movingIntoItself(head) {
+   return body.filter(part => (head.id != part.id) && (parseInt(part.x[0]) == parseInt(head.x[0])) && (parseInt(part.y[0]) == parseInt(head.y[0]))).length > 0;
 }
