@@ -11,23 +11,18 @@
 </head>
 <body>
    <div id="start-container" class="container">
-      <div id="message-wrapper" class="row">
+      <div id="message-wrapper">
          <p id = "message"> Welcome to my Snake Game! Press the button to begin. </p>
       </div>
-      <div id="start" class="row">
-         <button id = "start-button" class="btn btn-default">Start Game</button>
+      <div id="score">
       </div>
       <div id="start">
+         <button id = "start-button" class="btn btn-default">Start Game</button>
+         <br>
          <img id="start-image" src="https://www.coolmathgames.com/sites/default/files/snake.png" class="row"></img>
       </div>
    </div>
    <div id = "board">
-      <section id = "edgeTop"></section>
-      <section id = "edgeBottom"></section>
-      <section id = "edgeLeft"></section>
-      <section id = "edgeRight"></section>
-      
-      <section id = "apple"></section>
    </div>
    <script src = "SnakeGame.js"></script>
    <script src = "SnakeMovement.js"></script>

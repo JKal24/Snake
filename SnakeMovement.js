@@ -70,6 +70,19 @@ function checkPosition() {
    if ((parseInt(body[0].x[0]) == appleLocation[0][0]) 
       && (parseInt(body[0].y[0]) == appleLocation[1][0])) {
       addPart();
-      spawnApple();
+      spawnApple(false);
+      score++;
    }
+
+   if (outOfBounds(body[0])) {
+      gameOver();
+   }
+}
+
+function outOfBounds(head) {
+   if ((parseInt(head.x[0]) > 19 || parseInt(head.x[0]) < 2) || 
+   (parseInt(head.y[0]) > 19 || parseInt(head.y[0]) < 2)) {
+      return true;
+   }
+   return false;
 }
