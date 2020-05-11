@@ -12,8 +12,8 @@ function movement() {
 function changePoints() {
    lastPart = body.slice(body.length - 1)[0];
    lastPart = {
-      x: [lastPart.x[0], lastPart.x[1]],
-      y: [lastPart.y[0], lastPart.y[1]]
+      x: body[body.length - 1].x.slice(),
+      y: body[body.length - 1].y.slice()
    }
 
    for (let parse = body.length - 1; parse > 0; parse--) {
@@ -77,6 +77,7 @@ function checkPosition() {
       spawnApple(false);
       score++;
       updateScore();
+      intervalUpdate();
    }
 
    if (outOfBounds(body[0]) || movingIntoItself(body[0])) {

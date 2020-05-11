@@ -6,6 +6,7 @@ let partId = 0;
 let score = 0;
 let board;
 let iteration;
+let speed;
 
 $(document).ready(function () {
    board = document.getElementById("board");
@@ -46,6 +47,7 @@ $(document).ready(function () {
          y: ["10", "11"]
       };
       direction = 0;
+      speed = 500;
 
       addPart();
       spawnApple(true);
@@ -54,7 +56,7 @@ $(document).ready(function () {
       document.getElementById(partId - 1).classList.add('head');
       document.getElementById(partId - 1).classList.remove('bodyPart');
 
-      iteration = setInterval(movement, 500);
+      iteration = setInterval(movement, speed);
    });
 });
 
@@ -144,4 +146,12 @@ function appendBorder(name) {
 
 function updateScore() {
    $("#scoreBoard").text('Score: ' + score);
+}
+
+function intervalUpdate() {
+   clearInterval(iteration);
+   if (speed > 100) {
+      speed -= 25;
+   }
+   iteration = setInterval(movement, speed);
 }
